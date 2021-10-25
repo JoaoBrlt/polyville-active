@@ -1,0 +1,35 @@
+
+  <h3>Plaque d'immatriculation</h3>
+  <mat-form-field class="example-form-field">
+    <mat-label>Plaque d'immatriculation</mat-label>
+    <input matInput type="text" [(ngModel)]="carNumber">
+    <button mat-button *ngIf="carNumber" matSuffix mat-icon-button aria-label="Clear" (click)="carNumber=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-divider></mat-divider>
+  <div id="time">
+    <h3>Temps estimé</h3>
+    <mat-form-field appearance="fill">
+      <mat-label>Heure</mat-label>
+      <mat-select [(ngModel)]="time.hour">
+        <mat-option *ngFor="let hour of hours" [value]="hour">
+          {{hour}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Minute</mat-label>
+      <mat-select [(ngModel)]="time.minute">
+        <mat-option *ngFor="let minute of minutes" [value]="minute">
+          {{minute}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <mat-divider></mat-divider>
+  <button mat-raised-button class="em" (click)="create()">Payer</button>
+  <h4 *ngIf="message">{{this.message}}</h4>
+  <mat-divider *ngIf="ticket"></mat-divider>
+  <button mat-raised-button class="em" [routerLink]="'/innovation/ticket'" *ngIf="ticket">Voir votre ticket</button>
+

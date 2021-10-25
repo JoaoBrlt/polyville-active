@@ -1,0 +1,10 @@
+<h1>SmartParking - Parking ouvert</h1>
+<div class="container">
+  <div class="terminal">
+    <h2>Terminal</h2>
+    <app-outside-parking-terminal ></app-outside-parking-terminal>
+  </div>
+  <a (click)="goToLink(onlineTerminalLink)">
+    <qrcode [qrdata]="onlineTerminalLink" [elementType]="'url'" [errorCorrectionLevel]="'M'" [width]="200"></qrcode>
+  </a>
+</div>

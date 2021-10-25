@@ -1,0 +1,4 @@
+<div id="no-found-msg" *ngIf="parkingList.length==0"> Aucun parking trouvé.</div>
+<div *ngFor="let parking of parkingList; let i=index">
+  <app-parking [parking]="parking"></app-parking>
+</div>

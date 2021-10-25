@@ -1,0 +1,12 @@
+# IDE.
+.idea/
+.editorconfig
+
+# Github.
+.git/
+.gitignore
+README.md
+
+# Dependencies.
+node_modules/
+.nvmrc

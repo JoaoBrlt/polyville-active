@@ -1,0 +1,20 @@
+<div class="card">
+  <h1 class="title">Créer votre publication</h1>
+  <form class="promotion-form" [formGroup]="publicationForm">
+    <label for="promotion-title">
+      Titre de la publication :
+      <input class="input-custom" type="text" id="promotion-title" [formControlName]="'title'">
+    </label>
+    <br>
+    <label for="promotion-content">
+      Message de la publication :
+      <input class="input-custom" type="text" id="promotion-content" [formControlName]="'content'">
+    </label>
+
+    <p id="msg-shop-form"></p>
+    <div class="end-form-button">
+      <button type="submit" class="button-card" (click)="createPublication()">Créer</button>
+      <!--      <button class="button-card" (click)="deleteShop()">Supprimer</button>-->
+    </div>
+  </form>
+</div>

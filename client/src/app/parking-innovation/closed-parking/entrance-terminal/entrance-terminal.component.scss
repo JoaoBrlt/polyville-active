@@ -1,0 +1,18 @@
+.entrance-terminal {
+  background-color: #E0E0E0;
+  width: 200px;
+  height: 400px;
+  text-align: center;
+  padding: 20px;
+
+  .qrcode {
+    width: 100px;
+  }
+}
+
+.qrcode-container{
+  width: 200px;
+  height: 200px;
+  background-color: dimgray;
+  margin-bottom: 10px;
+}

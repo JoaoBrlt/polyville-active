@@ -1,0 +1,8 @@
+<div class="card">
+  <label>
+    Identifiant de votre magasin :
+    <input type="text" id="id-select" (keyup)="selectShop($event)">
+  </label>
+  <button type="submit" class="button-card" *ngIf="idExists()" (click)="connectShop()">Se connecter</button>
+  <button type="submit" class="button-card" *ngIf="!idExists()" (click)="createShop()">Créer</button>
+</div>

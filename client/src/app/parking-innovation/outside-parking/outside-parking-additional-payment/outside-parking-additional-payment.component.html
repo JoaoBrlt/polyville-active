@@ -1,0 +1,24 @@
+<div>
+  <div id="time">
+    <h3>Temps à ajouter</h3>
+    <mat-form-field appearance="fill">
+      <mat-label>Heure</mat-label>
+      <mat-select [(ngModel)]="time.hour">
+        <mat-option *ngFor="let hour of hours" [value]="hour">
+          {{hour}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Minute</mat-label>
+      <mat-select [(ngModel)]="time.minute">
+        <mat-option *ngFor="let minute of minutes" [value]="minute">
+          {{minute}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <mat-divider></mat-divider>
+  <button mat-raised-button class="em" (click)="pay()">Payer</button>
+  <h4 *ngIf="message">{{this.message}}</h4>
+</div>

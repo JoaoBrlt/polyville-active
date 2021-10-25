@@ -1,0 +1,46 @@
+@import "../../../styles.scss";
+
+table {
+  width: 100%;
+}
+
+.plugin-buttons {
+  margin-bottom: 20px;
+}
+
+.mat-button-base.mr {
+  margin-right: 10px;
+}
+
+.mat-column-pluginId {
+  width: 30%;
+}
+
+.mat-column-version,
+.mat-column-provider {
+  width: 10%;
+}
+
+.mat-column-pluginState {
+  width: 20%;
+}
+
+.mat-column-actions {
+  width: 30%;
+}
+
+.mat-header-row, .mat-row {
+  height: 60px;
+}
+
+.plugin-started,
+.plugin-stopping {
+  background-color: #a5d6a7;
+}
+
+.plugin-resolved,
+.plugin-stopped,
+.plugin-starting {
+  background-color: #ef9a9a;
+}
+

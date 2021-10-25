@@ -1,0 +1,11 @@
+<div class="card">
+  <label for="event-select">Votre événement :</label>
+
+  <select name="event" id="event-select" [(ngModel)]="eventSelected" (ngModelChange)="selectEvent($event)">
+    <option selected>--Veuillez sélectionner un événement--</option>
+    <option  *ngFor="let cityEvent of cityEventList; let i = index" value="{{i}}">{{ cityEvent.title }}</option>
+  </select>
+</div>
+<div *ngIf="eventSelected" >
+  <app-publication-form [owner]="eventSelected" [postRoute]="'/eventsPublications'" [ownerAttributeName]="'event'"></app-publication-form>
+</div>

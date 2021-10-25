@@ -1,0 +1,10 @@
+<div class="card">
+  <div id="buttons" *ngIf="adminAccess" >
+    <button *ngIf="adminAccess" class="card" (click)="requestDelete()">Supprimer</button>
+    <button class="card" (click)="requestModif()">Modifier</button>
+  </div>
+  <h3>{{cityEvent.title}}</h3>
+  <h4>Débute le : {{translateDate(cityEvent.startDate)}}</h4>
+  <h4>Se termine le : {{translateDate(cityEvent.endDate)}}</h4>
+  <p>{{cityEvent.description}}</p>
+</div>

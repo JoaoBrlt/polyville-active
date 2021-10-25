@@ -1,0 +1,8 @@
+<div class="card">
+  <label>
+    Identifiant de votre parking :
+    <input type="text" id="id-select" (keyup)="selectParking($event)">
+  </label>
+  <button type="submit" class="button-card" *ngIf="idExists()" (click)="connectParking()">Se connecter</button>
+  <button type="submit" class="button-card" *ngIf="!idExists()" (click)="createParking()">Créer</button>
+</div>

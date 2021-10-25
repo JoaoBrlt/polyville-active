@@ -1,0 +1,4 @@
+<div id="no-found-msg" *ngIf="cityEvents.length === 0"> Aucun événement trouvé.</div>
+<div *ngFor="let cityEvent of cityEvents; let i = index">
+  <app-city-event [cityEvent]="cityEvent"></app-city-event>
+</div>

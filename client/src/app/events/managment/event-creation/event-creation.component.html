@@ -1,0 +1,31 @@
+<div class="card" *ngIf="formBuilder!=undefined">
+  <h1 class="title">Créer votre évènement</h1>
+  <form class="event-form" [formGroup]="eventForm">
+    <label for="event-title">
+      Titre de l'évènement :
+      <input class="input-custom" type="text" id="event-title" [formControlName]="'title'">
+    </label>
+    <br>
+    <label for="event-content">
+      Description de l'évènement :
+      <input class="input-custom" type="text" id="event-content" [formControlName]="'description'">
+    </label>
+    <br>
+    <div id="dates">
+      <label for="event-start-date">
+        Début de l'événement :
+        <input class="input-custom" type="datetime-local" id="event-start-date" [formControlName]="'startDate'">
+      </label>
+      <label for="event-end-date">
+        Fin de l'événement :
+        <input class="input-custom" type="datetime-local" id="event-end-date" [formControlName]="'endDate'">
+      </label>
+    </div>
+
+    <p id="msg-shop-form"></p>
+    <div class="end-form-button">
+      <button *ngIf="creation" type="submit" class="button-card" (click)="createEvent()">Créer</button>
+      <button *ngIf="!creation" type="submit" class="button-card" (click)="modifEvent()">Modifier</button>
+    </div>
+  </form>
+</div>

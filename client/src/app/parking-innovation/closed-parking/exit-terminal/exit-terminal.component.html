@@ -1,0 +1,15 @@
+<div class="exit-terminal">
+  <div class="input-div">
+    <mat-form-field class="example-form-field">
+      <mat-label> Id de votre ticket</mat-label>
+      <input matInput type="text" [(ngModel)]="idSelected">
+      <button mat-button *ngIf="idSelected" matSuffix mat-icon-button aria-label="Clear" (click)="idSelected=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <button mat-raised-button class="mr scan-button" (click)="checkTicket()">Scan</button>
+  </div>
+  <p class="open" *ngIf="open">OPEN</p>
+  <p class="open" *ngIf="!open">CLOSE</p>
+  <img class="logo_exit open-{{open}}" src="https://www.graphicproducts.com/assets/images/products/SL4055.png" alt="exit logo"/>
+</div>

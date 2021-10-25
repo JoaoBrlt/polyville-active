@@ -1,0 +1,18 @@
+<div *ngIf="this.parking" class="card">
+  <h1 class="title">Modifier les informations de votre parking</h1>
+  <form class="parking-form" [formGroup]="parkingForm">
+    <label for="parking-title">
+      Le nom du parking :
+      <input class="input-custom" type="text" id="parking-title" [formControlName]="'name'">
+    </label><br>
+    <label for="parking-capacity">
+      Le nombre de places :
+      <input class="input-custom" type="number" id="parking-capacity" [formControlName]="'capacity'">
+    </label>
+    <p id="msg-parking-form"></p>
+    <div class="end-form-button">
+      <button type="submit" class="button-card" (click)="updateParking()">Confirmer</button>
+<!--      <button class="button-card" (click)="deleteParking()">Supprimer</button>-->
+    </div>
+  </form>
+</div>

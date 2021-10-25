@@ -1,0 +1,36 @@
+<mat-toolbar fxLayout="row" color="primary" class="mat-elevation-z6">
+  <span fxFlex>PolyVille Active</span>
+
+  <ng-container *ngFor="let item of menuItems">
+    <button mat-button [matMenuTriggerFor]="itemDropdown" [routerLink]="item.link" fxHide.xs>
+      <mat-icon *ngIf="item.icon" class="mr">{{item.icon}}</mat-icon>
+      {{item.title}}
+    </button>
+    <mat-menu #itemDropdown="matMenu" overlapTrigger="false">
+      <button mat-menu-item *ngFor="let subItem of item.subItems" [routerLink]="subItem.link">
+        <mat-icon class="mr" *ngIf="subItem.icon">{{subItem.icon}}</mat-icon>
+        {{subItem.title}}
+      </button>
+    </mat-menu>
+  </ng-container>
+
+  <button mat-icon-button [matMenuTriggerFor]="menuDropdown" fxHide fxShow.xs>
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <mat-menu #menuDropdown="matMenu">
+    <ng-container *ngFor="let item of menuItems">
+      <button mat-menu-item [matMenuTriggerFor]="submenuDropdown">
+        <mat-icon class="mr" *ngIf="item.icon">{{item.icon}}</mat-icon>
+        {{item.title}}
+      </button>
+      <mat-menu #submenuDropdown="matMenu" overlapTrigger="false">
+        <button mat-menu-item *ngFor="let subItem of item.subItems" [routerLink]="subItem.link">
+          <mat-icon class="mr" *ngIf="subItem.icon">{{subItem.icon}}</mat-icon>
+          {{subItem.title}}
+        </button>
+      </mat-menu>
+      <mat-divider></mat-divider>
+    </ng-container>
+  </mat-menu>
+</mat-toolbar>

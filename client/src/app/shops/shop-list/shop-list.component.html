@@ -1,0 +1,4 @@
+<div id="no-found-msg" *ngIf="shopList.length==0"> Aucun magasin trouvé.</div>
+<div *ngFor="let shop of shopList; let i=index">
+  <app-shop [shop]="shop"></app-shop>
+</div>

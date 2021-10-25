@@ -1,0 +1,35 @@
+<div class="card">
+  <h1 class="title">Créer votre promotion</h1>
+  <form class="promotion-form" [formGroup]="promotionForm">
+    <label for="promotion-title">
+      Titre de la promotion :
+      <input class="input-custom" type="text" id="promotion-title" [formControlName]="'title'">
+    </label>
+    <br>
+    <label for="promotion-content">
+      Condition de la promotion :
+      <input class="input-custom" type="text" id="promotion-content" [formControlName]="'condition'">
+    </label>
+    <br>
+    <label>
+      Forme de la promotion :
+      <input class="input-custom" type="radio" name="isPercentage" value="true" [formControlName]="'isPercentage'"
+      (ngModelChange)="log()"/>
+      <label>En pourcentage</label>
+      <input class="input-custom" type="radio" name="isPercentage" value="false" [formControlName]="'isPercentage'"
+      (ngModelChange)="log()"/>
+      <label>En brut</label>
+    </label>
+    <br>
+    <label for="promotion-value">
+      Valeur de la promotion :
+      <input class="input-custom" type="text" id="promotion-value" [formControlName]="'value'">
+    </label>
+
+    <p id="msg-shop-form"></p>
+    <div class="end-form-button">
+      <button type="submit" class="button-card" (click)="createPromotion()">Créer</button>
+      <!-- <button class="button-card" (click)="deleteShop()">Supprimer</button> -->
+    </div>
+  </form>
+</div>

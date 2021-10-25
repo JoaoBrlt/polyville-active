@@ -1,0 +1,40 @@
+<div *ngIf="this.shop" class="card">
+  <h1 class="title">Modifier les informations de votre magasin</h1>
+  <form class="shop-form" [formGroup]="shopForm">
+    <label for="shop-title">
+      Le nom du magasin :
+      <input class="input-custom" type="text" id="shop-title" [formControlName]="'name'">
+    </label>
+    <div for="shop-latitude">
+      La latitude du magasin :
+      <input class="input-custom" type="text" id="shop-latitude" [formControlName]="'latitude'">
+    </div>
+    <div for="shop-longitude">
+      La longitude du magasin :
+      <input class="input-custom" type="text" id="shop-longitude" [formControlName]="'longitude'">
+    </div>
+    <div id="time-table-field" class="time-table" formArrayName="timeTable">
+      <div id="answers-list">
+        <div *ngFor="let address of timeTable.controls; let i=index">
+          <div class="answer-form" [formGroupName]="i">
+            <label>
+              {{ this.days[i] }}
+              <br>
+              Ouverture à :
+              <input type="time" [formControlName]="'startingHour'">
+              <br>
+              Fermeture à :
+              <input type="time" [formControlName]="'endingHour'">
+            </label>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <p id="msg-shop-form"></p>
+    <div class="end-form-button">
+      <button type="submit" class="button-card" (click)="updateShop()">Confirmer</button>
+<!--      <button class="button-card" (click)="deleteShop()">Supprimer</button>-->
+    </div>
+  </form>
+</div>

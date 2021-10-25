@@ -1,0 +1,18 @@
+
+
+
+
+
+
+
+
+
+
+<div class="entrance-terminal">
+  <div class="qrcode-container">
+    <a *ngIf="ticket" (click)="goToLink(getAbsoluteLink())">
+      <qrcode [qrdata]="getAbsoluteLink()" [elementType]="'url'" [errorCorrectionLevel]="'M'" [width]="200"></qrcode>
+    </a>
+  </div>
+  <button mat-raised-button class="mr" (click)="generateTicket()">Générer</button>
+</div>

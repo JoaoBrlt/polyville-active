@@ -1,0 +1,6 @@
+<div>
+  <app-event-creation [cityEvent]="eventSelected"></app-event-creation>
+  <div *ngFor="let cityEvent of cityEventList; let i=index">
+    <app-city-event [cityEvent]="cityEvent" [adminAccess]="true" (modifRequest)="selectEvent($event)"></app-city-event>
+  </div>
+</div>

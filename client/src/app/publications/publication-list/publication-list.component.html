@@ -1,0 +1,4 @@
+<div id="no-found-msg" *ngIf="publicationList.length==0"> Aucune publication trouvée.</div>
+<div *ngFor="let publication of publicationList; let i=index">
+  <app-publication [publication]="publication"></app-publication>
+</div>

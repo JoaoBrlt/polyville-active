@@ -1,0 +1,53 @@
+<h1>Ticket page</h1>
+
+<div *ngIf="ticket; else noTicket">
+  <h2 style="color: red" *ngIf="warning">{{this.warning}}</h2>
+    <ul>
+      <li>
+        <span class="label">Numéro du ticket :</span>
+        <br>
+        {{ticket.id}}
+      </li>
+      <li>
+        <span class="label">Date et heure du ticket :</span>
+        <br>
+        {{translateDate(ticket.date)}}
+      </li>
+      <li *ngIf="ticket.payment && ticket.payment.value">
+        <span class="label">Montant à régler :</span>
+        <br>
+        {{ticket.payment.value}}
+      </li>
+      <li *ngIf="ticket.payment && ticket.payment.validityLimit">
+        <span class="label">Date limite de validité de paiment :</span>
+        <br>
+        {{translateDate(ticket.payment.validityLimit)}}
+      </li>
+      <li *ngIf="ticket.carNumberPlate">
+        <span class="label">Votre plaque d'immatriculation :</span>
+        <br>
+        {{ticket.carNumberPlate}}
+      </li>
+      <li *ngIf="ticket.parkingId">
+        <span class="label">Numéro du parking :</span>
+        <br>
+        {{ticket.parkingId}}
+      </li>
+      <li *ngIf="ticket.placeInfo">
+        <span class="label">Place de parking :</span>
+        <br>
+        {{ticket.placeInfo}}
+      </li>
+    </ul>
+  <div class="outside-div" *ngIf="ticket.state==='OUTSIDE'">
+    <button *ngIf="!addPay" mat-raised-button class="em" (click)="addPay=true">Ajouter du temps</button>
+    <mat-card *ngIf="addPay">
+      <app-outside-parking-additional-payment [ticket]="ticket" (newTicket)="ticket=$event; addPay=false;"></app-outside-parking-additional-payment>
+    </mat-card>
+  </div>
+  <ngx-barcode [bc-value]="ticket.id.toString()" [bc-display-value]="true"></ngx-barcode>
+</div>
+<ng-template #noTicket>
+  <div>No ticket found</div>
+</ng-template>
+
