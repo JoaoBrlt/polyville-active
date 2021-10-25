@@ -1,0 +1,63 @@
+version: '3'
+
+services:
+  # Database.
+  postgres:
+    image: postgres
+    container_name: ps7-al1-postgres
+    environment:
+      - POSTGRES_MULTIPLE_DATABASES=ps7_database,ps7_shops,ps7_parking,ps7_events,ps7_innovation
+      - POSTGRES_USER=ps7_user
+      - POSTGRES_PASSWORD=ps7_password
+    volumes:
+      - ./scripts:/docker-entrypoint-initdb.d
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ps7_user -d ps7_database"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    ports:
+      - "5432:5432"
+    networks:
+      - ps7-al1-network
+
+  # Server.
+  server:
+    build: ./server
+    container_name: ps7-al1-server
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/ps7_database
+      SPRING_DATASOURCE_USERNAME: ps7_user
+      SPRING_DATASOURCE_PASSWORD: ps7_password
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - ps7-al1-network
+
+  # Client.
+  client:
+    build: ./client
+    container_name: ps7-al1-client
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    depends_on:
+      postgres:
+        condition: service_healthy
+      server:
+        condition: service_started
+    networks:
+      - ps7-al1-network
+
+volumes:
+  postgres-data:
+
+networks:
+  ps7-al1-network:
+    driver: bridge
