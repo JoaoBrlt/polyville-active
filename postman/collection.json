@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "6a87d22e-75ec-402b-a7ac-d12531acbcd3",
+		"_postman_id": "b76f303a-ed74-4e36-8a83-80d3be44e0d5",
 		"name": "PolyVille Active",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -1613,53 +1613,6 @@
 							"response": []
 						},
 						{
-							"name": "Register a payment linked to a parking",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"status code is ok\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});\r",
-											"\r",
-											"pm.test(\"content type is json\", function () {\r",
-											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');\r",
-											"});"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{server_url}}/innovation/outside-parking/14/register/ThisIsAPlateNumber",
-									"host": [
-										"{{server_url}}"
-									],
-									"path": [
-										"innovation",
-										"outside-parking",
-										"14",
-										"register",
-										"ThisIsAPlateNumber"
-									]
-								}
-							},
-							"response": []
-						},
-						{
 							"name": "Put a additional payment to a ticket",
 							"request": {
 								"method": "PUT",
@@ -1718,43 +1671,6 @@
 									"path": [
 										"innovation",
 										"outside-parking",
-										"tickets"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get all the tickets of a outside parking",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"status code is ok\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});\r",
-											"\r",
-											"pm.test(\"content type is json\", function () {\r",
-											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');\r",
-											"});"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{server_url}}/innovation/outside-parking/14/tickets",
-									"host": [
-										"{{server_url}}"
-									],
-									"path": [
-										"innovation",
-										"outside-parking",
-										"14",
 										"tickets"
 									]
 								}
