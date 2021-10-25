@@ -1,0 +1,2787 @@
+{
+	"info": {
+		"_postman_id": "6a87d22e-75ec-402b-a7ac-d12531acbcd3",
+		"name": "PolyVille Active",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Core application",
+			"item": [
+				{
+					"name": "Common",
+					"item": [
+						{
+							"name": "Get the publications",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/publications",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"publications"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get the establishments",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/establishments",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"establishments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get the places",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/places",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"places"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Plugins",
+					"item": [
+						{
+							"name": "List the plugins",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/sbp/admin/list",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"sbp",
+										"admin",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Stop a plugin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/sbp/admin/stop/shops",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"sbp",
+										"admin",
+										"stop",
+										"shops"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Start a plugin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/sbp/admin/start/shops",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"sbp",
+										"admin",
+										"start",
+										"shops"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Ping a missing plugin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is 404 not found\", function () {",
+											"    pm.response.to.have.status(404);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/hello",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"hello"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Resolve a new plugin",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/sbp/admin/resolve/hello",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"sbp",
+										"admin",
+										"resolve",
+										"hello"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Start the new plugin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/sbp/admin/start/hello",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"sbp",
+										"admin",
+										"start",
+										"hello"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Ping the new plugin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/hello",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"hello"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Resolve all new plugins",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/sbp/admin/resolve-all",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"sbp",
+										"admin",
+										"resolve-all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reload a plugin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/sbp/admin/reload/shops",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"sbp",
+										"admin",
+										"reload",
+										"shops"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reload all the plugins",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/sbp/admin/reload-all",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"sbp",
+										"admin",
+										"reload-all"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Shops plugin",
+			"item": [
+				{
+					"name": "Shops",
+					"item": [
+						{
+							"name": "Get the shops",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/shops",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"shops"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add a shop",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Shop name\",\n    \"owner\": \"Shop owner\",\n    \"type\": \"Shop type\",\n    \"address\": \"Shop address\",\n    \"latitude\": 48.858327,\n    \"longitude\": 2.294481\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server_url}}/shops",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"shops"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a shop",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/shops/1",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"shops",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update a shop",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Shop name 2\",\n    \"owner\": \"Shop owner 2\",\n    \"type\": \"Shop type 2\",\n    \"address\": \"Shop address 2\",\n    \"latitude\": 47.000012,\n    \"longitude\": 7.414521\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server_url}}/shops/1",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"shops",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Shop discounts",
+					"item": [
+						{
+							"name": "Get the shop discounts",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/shops/1/discounts",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"shops",
+										"1",
+										"discounts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add a shop discount",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Discount title\",\n    \"content\": \"Discount content\",\n    \"value\": 70.0,\n    \"isPercentage\": true,\n    \"condition\": \"Discount condition\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server_url}}/shops/1/discounts",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"shops",
+										"1",
+										"discounts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a shop discount",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/shops/1/discounts/1",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"shops",
+										"1",
+										"discounts",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update a shop discount",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Discount title 2\",\n    \"content\": \"Discount content 2\",\n    \"value\": 10.5,\n    \"isPercentage\": false,\n    \"condition\": \"Discount condition 2\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server_url}}/shops/1/discounts/1",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"shops",
+										"1",
+										"discounts",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Discounts",
+					"item": [
+						{
+							"name": "Get the discounts",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/discounts",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"discounts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get the discount",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/discounts/1",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"discounts",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Delete a shop discount",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"status code is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server_url}}/shops/1/discounts/1",
+							"host": [
+								"{{server_url}}"
+							],
+							"path": [
+								"shops",
+								"1",
+								"discounts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a shop",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"status code is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server_url}}/shops/1",
+							"host": [
+								"{{server_url}}"
+							],
+							"path": [
+								"shops",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Parking plugin",
+			"item": [
+				{
+					"name": "Parking",
+					"item": [
+						{
+							"name": "Get the parking",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/parking",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"parking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add a parking",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Parking name\",\n    \"owner\": \"Parking owner\",\n    \"address\": \"Parking address\",\n    \"latitude\": 0.2,\n    \"longitude\": 1.5,\n    \"capacity\": 150,\n    \"availablePlaces\": 85\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server_url}}/parking",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"parking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a parking",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/parking/13",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"parking",
+										"13"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Put a parking",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Parking name 2\",\n    \"owner\": \"Parking owner 2\",\n    \"address\": \"Parking address 2\",\n    \"latitude\": 41.164854,\n    \"longitude\": 12.000001,\n    \"capacity\": 300,\n    \"availablePlaces\": 178\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server_url}}/parking/13",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"parking",
+										"13"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Put parking capacity",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"capacity\": 222\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server_url}}/parking/capacity/13",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"parking",
+										"capacity",
+										"13"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a parking",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/parking/13",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"parking",
+										"13"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"description": "All routes of parking plugin",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Innovation plugin",
+			"item": [
+				{
+					"name": "inside-parking",
+					"item": [
+						{
+							"name": "Generate a ticket",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/innovation/inside-parking/generate",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"innovation",
+										"inside-parking",
+										"generate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Generate a ticket linked to a parking",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/innovation/inside-parking/1/generate",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"innovation",
+										"inside-parking",
+										"1",
+										"generate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a ticket",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/innovation/inside-parking/tickets/1",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"innovation",
+										"inside-parking",
+										"tickets",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a ticket linked to a parking",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/innovation/inside-parking/tickets/2",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"innovation",
+										"inside-parking",
+										"tickets",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Validate a ticket like taken",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/innovation/inside-parking/validate/1",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"innovation",
+										"inside-parking",
+										"validate",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Do a lambda payment",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/innovation/inside-parking/payment/1",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"innovation",
+										"inside-parking",
+										"payment",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Done a ticket",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"content type is json\", function () {\r",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/innovation/inside-parking/done/1",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"innovation",
+										"inside-parking",
+										"done",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "All routes of inside parking innovation part",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "outside-parking",
+					"item": [
+						{
+							"name": "Register a payment",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"content type is json\", function () {\r",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server_url}}/innovation/outside-parking/register/ThisIsAPlateNumber",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"innovation",
+										"outside-parking",
+										"register",
+										"ThisIsAPlateNumber"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a outside-parking",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"content type is json\", function () {\r",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Parking name\",\r\n    \"owner\": \"Parking owner\",\r\n    \"address\": \"Parking address\",\r\n    \"latitude\": 0.2,\r\n    \"longitude\": 1.5,\r\n    \"capacity\": 150,\r\n    \"availablePlaces\": 85,\r\n    \"outsideParking\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server_url}}/parking",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"parking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Register a payment linked to a parking",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"content type is json\", function () {\r",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server_url}}/innovation/outside-parking/14/register/ThisIsAPlateNumber",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"innovation",
+										"outside-parking",
+										"14",
+										"register",
+										"ThisIsAPlateNumber"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Put a additional payment to a ticket",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server_url}}/innovation/outside-parking/additional-payment/3",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"innovation",
+										"outside-parking",
+										"additional-payment",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all the outside parking tickets",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"content type is json\", function () {\r",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/innovation/outside-parking/tickets",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"innovation",
+										"outside-parking",
+										"tickets"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all the tickets of a outside parking",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"content type is json\", function () {\r",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/innovation/outside-parking/14/tickets",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"innovation",
+										"outside-parking",
+										"14",
+										"tickets"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "global",
+					"item": [
+						{
+							"name": "Modify a ticket",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"content type is json\", function () {\r",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"placeInfo\": \"test\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server_url}}/innovation/tickets/1",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"innovation",
+										"tickets",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a payment",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"placeInfo\": \"test\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server_url}}/innovation/payments/1",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"innovation",
+										"payments",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a ticket",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"placeInfo\": \"test\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server_url}}/innovation/tickets/1",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"innovation",
+										"tickets",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Events plugin",
+			"item": [
+				{
+					"name": "Places",
+					"item": [
+						{
+							"name": "Get the event places",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/eventsPlaces",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"eventsPlaces"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add an event place",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Place name\",\n    \"address\": \"Place address\",\n    \"latitude\": 12.201254,\n    \"longitude\": 13.5\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server_url}}/eventsPlaces",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"eventsPlaces"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get an event place",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/eventsPlaces/1",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"eventsPlaces",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update an event place",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Place name 2\",\n    \"address\": \"Place address 2\",\n    \"latitude\": 12.2,\n    \"longitude\": 13.51\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server_url}}/eventsPlaces/1",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"eventsPlaces",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Managers",
+					"item": [
+						{
+							"name": "Get the managers",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/eventsManagers",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"eventsManagers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add a manager",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Owner name\",\n    \"email\": \"Owner email\",\n    \"tel\": \"Owner phone\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server_url}}/eventsManagers",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"eventsManagers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a manager",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/eventsManagers/1",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"eventsManagers",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get the manager events",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/eventsManagers/1/events",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"eventsManagers",
+										"1",
+										"events"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update a manager",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Owner name 2\",\n    \"email\": \"Owner email 2\",\n    \"tel\": \"Owner phone 2\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server_url}}/eventsManagers/1",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"eventsManagers",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Events",
+					"item": [
+						{
+							"name": "Get the events",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/events",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"events"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add an event",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Event title\",\n    \"description\": \"Event description\",\n    \"startDate\": [2020, 12, 18, 9, 0],\n    \"endDate\": [2020, 12, 18, 18, 0],\n    \"location\": {\n        \"id\": 1\n    },\n    \"owner\": {\n        \"id\": 1\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server_url}}/events",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"events"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get the event publications",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/events/1/publications",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"events",
+										"1",
+										"publications"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update an event",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Event title 2\",\n    \"description\": \"Event description 2\",\n    \"startDate\": [2021, 5, 7, 20, 0],\n    \"endDate\": [2021, 5, 7, 23, 0],\n    \"location\": {\n        \"id\": null,\n        \"name\": \"Place name\",\n        \"address\": \"Place address\",\n        \"latitude\": 45.128564,\n        \"longitude\": 6.993000\n    },\n    \"owner\": {\n        \"id\": null,\n        \"name\": \"Owner name\",\n        \"email\": \"Owner email\",\n        \"tel\": \"Owner phone\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server_url}}/events/1",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"events",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Publications",
+					"item": [
+						{
+							"name": "Get the event publications",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/eventsPublications",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"eventsPublications"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add an event publication",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Publication title\",\n    \"content\": \"Publication content\",\n    \"event\": {\n        \"id\": 1\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server_url}}/eventsPublications",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"eventsPublications"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get an event publication",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server_url}}/eventsPublications/1",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"eventsPublications",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update an event publication",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"content type is json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Publication title 2\",\n    \"content\": \"Publication content 2\",\n    \"event\": {\n        \"id\": 1\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server_url}}/eventsPublications/1",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"eventsPublications",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete an event publication",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"status code is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server_url}}/eventsPublications/1",
+							"host": [
+								"{{server_url}}"
+							],
+							"path": [
+								"eventsPublications",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an event",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"status code is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Evénement 2\",\n    \"description\": \"Description de l'événement.\",\n    \"startDate\": [2020, 12, 18, 9, 0, 0, 515202200],\n    \"endDate\": [2020, 12, 18, 18, 0, 0, 517201500],\n    \"location\": {\n        \"id\": null,\n        \"name\": \"Lieu\",\n        \"address\": \"Adresse\",\n        \"latitude\": 12.2,\n        \"longitude\": 13.5\n    },\n    \"owner\": {\n        \"id\": null\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_url}}/events/1",
+							"host": [
+								"{{server_url}}"
+							],
+							"path": [
+								"events",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a manager",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"status code is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server_url}}/eventsManagers/1",
+							"host": [
+								"{{server_url}}"
+							],
+							"path": [
+								"eventsManagers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an event place",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"status code is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server_url}}/eventsPlaces/1",
+							"host": [
+								"{{server_url}}"
+							],
+							"path": [
+								"eventsPlaces",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Ping the server",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/actuator/health",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
