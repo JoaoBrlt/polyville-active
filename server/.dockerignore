@@ -1,0 +1,13 @@
+# IDE.
+.idea/
+.editorconfig
+server.iml
+
+# Github.
+.git/
+.gitignore
+README.md
+
+# Build.
+target/
+run.sh

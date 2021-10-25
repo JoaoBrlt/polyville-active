@@ -1,0 +1,22 @@
+spring:
+    # Flyway.
+    flyway:
+        enabled: false
+
+    # Datasource.
+    datasource:
+        initialization-mode: always
+        url: jdbc:postgresql://localhost:5432/ps7_events
+        username: ps7_user
+        password: ps7_password
+        driver-class-name: org.postgresql.Driver
+
+    # JPA.
+    jpa:
+        hibernate:
+            ddl-auto: create-drop
+        properties:
+            dialect: org.hibernate.dialect.PostgreSQL95Dialect
+            database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+        show-sql: true
+        open-in-view: false

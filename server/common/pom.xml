@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>fr.unice.ps7.al1</groupId>
+	<artifactId>common</artifactId>
+	<version>0.0.1</version>
+	<packaging>jar</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>11</java.version>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+
+		<sbp.version>0.1.8</sbp.version>
+		<maven.install.version>2.5.2</maven.install.version>
+	</properties>
+
+	<dependencies>
+		<!-- Spring Plugin -->
+		<dependency>
+			<groupId>org.laxture</groupId>
+			<artifactId>sbp-core</artifactId>
+			<version>${sbp.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<!-- Maven Install Plugin -->
+			<plugin>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>${maven.install.version}</version>
+				<executions>
+					<execution>
+						<id>default-install</id>
+						<phase>install</phase>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<file>${project.basedir}/target/${project.artifactId}-${project.version}.${project.packaging}</file>
+					<groupId>fr.unice.ps7.al1</groupId>
+					<artifactId>common</artifactId>
+					<version>${project.version}</version>
+					<packaging>jar</packaging>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
