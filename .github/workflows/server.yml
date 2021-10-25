@@ -1,0 +1,50 @@
+name: Server
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+    paths:
+      - 'server/**'
+      - 'postman/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: Run the server.
+        run: docker-compose up -d --build server
+
+      - name: Wait for the server.
+        uses: nev7n/wait_for_response@v1
+        with:
+          url: 'http://localhost:8080/actuator/health'
+          responseCode: 200
+          timeout: 30000
+          interval: 200
+
+      - name: Wait for the plugins.
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '30s'
+
+      - name: Copy an external plugin.
+        run: docker cp postman/hello-plugin.jar ps7-al1-server:/app/plugins/hello-plugin.jar
+
+      - name: Run the postman collection.
+        uses: matt-ball/newman-action@master
+        with:
+          collection: postman/collection.json
+          environment: postman/environment.json
+
+      - name: Close the server.
+        if: ${{ always() }}
+        run: docker-compose down
