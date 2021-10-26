@@ -2,7 +2,7 @@
 
 **Course:** Seventh Semester Project
 
-**Supervisors :** P. Collet, A.-M. Dery, R. Pourtier, M. Cousté, J. Rancati
+**Supervisors:** P. Collet, A.-M. Dery, R. Pourtier, M. Cousté, J. Rancati
 
 **Date:** December 2020 - January 2021
 
